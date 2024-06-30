@@ -11,6 +11,9 @@ class Product(PolymorphicModel):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
+    def __str__(self):
+        return self.name
+
 class Electronics(Product):
     warranty_period = models.CharField(max_length=50)
 
@@ -21,4 +24,3 @@ class Clothing(Product):
 class Books(Product):
     author = models.CharField(max_length=255)
     isbn = models.CharField(max_length=13)
-
